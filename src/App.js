@@ -16,12 +16,14 @@ export default () => {
         Math.random() * (originals[0].items.results.length - 1)
       );
       let chosen = originals[0].items.results[randomChosen];
-      let chosenInfo = await Tmbd.getMovieInfo(chosen.id, 'tv');
+      let chosenInfo = await Tmbd.getMovieInfo(chosen.id, "tv");
       console.log(chosenInfo);
       setFeatureData(chosenInfo);
     };
-    loadAll()
+    loadAll();
   }, []);
 
-  return <div className="page"></div>;
+  return( 
+    <div className="page"></div>
+  );
 };
