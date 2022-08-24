@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Tmbd from "./Tmbd";
+import Header from "./components/Header";
+
 
 export default () => {
   const [movieList, setMovieList] = useState([]);
   const [featureData, setFeatureData] = useState(null);
+  const [blackHeader, setBlackHeader] = useState(false);
   useEffect(() => {
     const loadAll = async () => {
       let list = await Tmbd.getHomeList();
@@ -24,6 +27,8 @@ export default () => {
   }, []);
 
   return( 
-    <div className="page"></div>
+    <div className="page">
+      <Header black={blackHeader} />
+    </div>
   );
 };
